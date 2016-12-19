@@ -1,0 +1,20 @@
+<html>
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<script>
+    var socket = io.connect('http://10.170.82.45:3000');
+    socket.on('connect', function () {
+        console.log('Connected');
+        socket.emit('device', 'desktop');
+    });
+    socket.on('tap', function (data) {
+        console.log(data);
+    });
+    socket.on('motion', function (data) {
+        console.log(data);
+    });
+</script>
+</body>
+</html>
