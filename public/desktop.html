@@ -1,20 +1,19 @@
 <html>
 <head>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/desktop.js"></script>
+    <style>
+        body { margin: 0; }
+        canvas { width: 100%; height: 100% }
+        pre { position: absolute; color: white }
+    </style>
 </head>
 <body>
-<script>
-    var socket = io.connect('http://10.170.82.45:3000');
-    socket.on('connect', function () {
-        console.log('Connected');
-        socket.emit('device', 'desktop');
-    });
-    socket.on('tap', function (data) {
-        console.log(data);
-    });
-    socket.on('motion', function (data) {
-        console.log(data);
-    });
-</script>
+<pre id="debug"></pre>
+<!--<div class="demo-frame">-->
+    <!--<div class="demo-container">-->
+        <!--<video id="video" width="600" height="450" preload autoplay loop muted controls></video>-->
+        <!--<canvas id="canvas" width="600" height="450"></canvas>-->
+    <!--</div>-->
+<!--</div>-->
 </body>
 </html>

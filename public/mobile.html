@@ -1,32 +1,14 @@
 <html>
 <head>
     <style>
-        body {
-            width: 200px;
+        #log {
+            word-wrap: break-word;
+            font-size: 30px;
         }
     </style>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/mobile.js"></script>
 </head>
 <body>
 <pre id="log"></pre>
-<script>
-    var socket = io.connect('http://10.170.82.45:3000');
-    var logOutput = document.getElementById('log');
-
-    socket.on('connect', function (data) {
-        socket.emit('device', 'mobile');
-        document.addEventListener('touchstart', function (event) {
-            socket.emit('tap', event);
-        });
-        document.addEventListener('devicemotion', function (event) {
-            socket.emit('motion', event);
-        }, true);
-    });
-
-    function log(data) {
-        logOutput.textContent += JSON.stringify(data);
-        logOutput.innerHTML += '\n';
-    }
-</script>
 </body>
 </html>
